@@ -32,8 +32,8 @@ class Steganographer:
                 elif (generated_data_list[i][j] == "1") and (pixel_triumvirate[j] % 2 == 0): 
                     pixel_triumvirate[j] -= 1
                     
-            # Eighth pixel of every set determines when data is fully parsed.
-            # 0 == keep reading; 1 == msg complete
+            # Utilize eighth pixel of each set to determine when data has been fully parsed.
+            # 0 == continue; 1 == break (end of message)
             if (i == data_list_len - 1): 
                 if (pixel_triumvirate[-1] % 2 == 0): 
                     pixel_triumvirate[-1] -= 1
@@ -49,7 +49,7 @@ class Steganographer:
         w = img.size[0] 
         (x, y) = (0, 0) 
         for pixel in self.modify_pixels(img.getdata(), data): 
-            # Putting modified pixels in the new image 
+            # Embed modified pixels in the new image 
             img.putpixel((x, y), pixel) 
             if (x == w - 1): 
                 x = 0
@@ -81,7 +81,7 @@ class Steganographer:
             pixel_triumvirate = [value for value in img_data.__next__()[:3] +
                                     img_data.__next__()[:3] +
                                     img_data.__next__()[:3]] 
-            # init a str as pointer for binary data 
+            # initialize a str as pointer for binary data 
             binary_str = "" 
             for i in pixel_triumvirate[:8]: 
                 if (i % 2 == 0): 
