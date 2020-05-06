@@ -1,5 +1,6 @@
 # Stegobot: A Steganographic Image Rendering Bot
 Stegobot is a Python-powered Discord bot which enables users to steganographically embed data inside of images. 
+![Demo](https://github.com/MatthewZito/stegobot/blob/master/assets/stegobot_demo.gif)
 
 ## Documentation
 Stegobot accepts two commands, both issued as prefixed messages accompanied by an image attachment. An attached image will have the following format for encoding:
